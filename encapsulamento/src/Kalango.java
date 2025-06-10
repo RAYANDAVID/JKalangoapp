@@ -1,15 +1,14 @@
 public class Kalango extends Personagem{
 
+    public Kalango() {
+        super(50); 
+    }
+
     @Override
     public void mover() {
-        System.out.println("Movendo...");
+        this.energia -= 3; 
+        System.out.println("Kalango movendo... Energia atual: " + this.energia);
     }
-
-    @Override
-    public int energia() {
-        return 50; // Kalango tem menos energia que Formiga e Abelinha
-    }
-
 
     @Override
     public void fazerSom() {
@@ -18,6 +17,7 @@ public class Kalango extends Personagem{
 
     @Override
     public void dormir() {
+        super.dormir();
         System.out.println("Kalango dormindo...");
     }
 }

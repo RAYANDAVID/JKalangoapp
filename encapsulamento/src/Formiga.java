@@ -1,8 +1,13 @@
 public class Formiga extends Personagem {
 
+    public Formiga() {
+        super(100); 
+    }
+
     @Override
     public void mover() {
-        System.out.println("Movendo...");
+        this.energia -= 2; 
+        System.out.println("Formiga movendo... Energia atual: " + this.energia);
     }
 
     @Override

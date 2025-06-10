@@ -1,8 +1,13 @@
 public class Abelinha extends Personagem{
 
+    public Abelinha() {
+        super(100); 
+    }
+
     @Override
     public void mover() {
-        System.out.println("Movendo...");
+        this.energia -= 1; 
+        System.out.println("Abelinha movendo... Energia atual: " + this.energia);
     }
 
     @Override

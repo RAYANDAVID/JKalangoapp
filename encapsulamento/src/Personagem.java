@@ -1,15 +1,20 @@
 public abstract class Personagem {
+    protected int energia; 
+
+    public Personagem(int energiaInicial) {
+        this.energia = energiaInicial;
+    }
 
     public abstract void mover();
 
-
-    protected int energia(){
-        return 100;
+    public int getEnergia() { 
+        return energia;
     }
 
     public abstract void fazerSom();
-    
-    void dormir() {
-        System.out.println("Dormindo...");
+
+    public void dormir() { 
+        this.energia += 10;
+        System.out.println(getClass().getSimpleName() + " dormindo... Energia aumentou para: " + this.energia);
     }
 }
