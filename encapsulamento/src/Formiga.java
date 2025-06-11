@@ -1,4 +1,4 @@
-public class Formiga extends Personagem {
+public class Formiga extends Personagem implements IArmamento {
 
     public Formiga() {
         super(100); 
@@ -14,4 +14,11 @@ public class Formiga extends Personagem {
     public void fazerSom() {
         System.out.println("Fzzzz!");
     }
+
+    @Override
+    public void atacar() {
+      System.out.println("Formiga ataca com 4 formas!");
+        
+    }
+    
 }

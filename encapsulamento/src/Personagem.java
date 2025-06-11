@@ -5,6 +5,10 @@ public abstract class Personagem {
         this.energia = energiaInicial;
     }
 
+    public Personagem() {
+        super();
+    }
+
     public abstract void mover();
 
     public int getEnergia() { 

@@ -8,6 +8,7 @@ public class App {
         f.mover();
         f.fazerSom();
         f.dormir();
+        f.atacar();
         System.out.println("Energia final da Formiga: " + f.getEnergia());
         System.out.println("----------------\n");
 
@@ -19,6 +20,7 @@ public class App {
         k.mover();
         k.fazerSom();
         k.dormir();
+        k.atacar();
         System.out.println("Energia final do Kalango: " + k.getEnergia());
         System.out.println("----------------\n");
 
@@ -30,6 +32,7 @@ public class App {
         a.mover();
         a.fazerSom();
         a.dormir();
+        a.atacar();
         System.out.println("Energia final da Abelinha: " + a.getEnergia());
         System.out.println("----------------\n");
     }

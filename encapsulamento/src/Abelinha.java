@@ -1,4 +1,4 @@
-public class Abelinha extends Personagem{
+public class Abelinha extends Personagem implements IArmamento {
 
     public Abelinha() {
         super(100); 
@@ -13,5 +13,11 @@ public class Abelinha extends Personagem{
     @Override
     public void fazerSom() {
         System.out.println("Bzzzz!");
+    }
+
+    @Override
+
+    public void atacar() {
+        System.out.println("Abelinha ataca com uma espada!");
     }
 }
