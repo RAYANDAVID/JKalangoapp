@@ -1,18 +1,17 @@
-public class Kalango extends Personagem implements IArmamento{
-
+public class Abelhinha extends Personagem implements IArmamento{
+    
     @Override
     public void atacar() {
         // TODO Auto-generated method stub
         
     }
-
-    public Kalango(Integer energia) {
+    public Abelhinha(Integer energia) {
         super(energia);
     }
-    
+
     @Override
     public void mover() {
-        energia -= 3;
+        energia -= 1;
         if (energia < 0) {
             energia = 0;
         }
@@ -21,16 +20,16 @@ public class Kalango extends Personagem implements IArmamento{
 
     @Override
     public void fazerSom() {
-       System.out.println("Tssss!"); 
+       System.out.println("Bzzzz!"); 
     }
 
     public void comer() {
-        energia += 3;
+        energia += 4;
         System.out.println("Comendo... Energia: "+energia);
     }
 
     public void tabelaFinal() {
-        System.out.print("Kalango Maratonista: "+energia+" Pts de Energia");
+        System.out.print("Abelhinha Polenizadora: "+energia+" Pts de Energia");
         if (energia <= 0) {
             System.out.print(" - Game Over -\n");
         }else{

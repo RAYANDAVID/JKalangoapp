@@ -1,48 +1,114 @@
-import br.com.jkalango.view.JKalango;
+import java.util.Scanner;
+
 import br.com.jkalango.view.JSplash;
 
 public class App {
     public static void main(String[] args) throws Exception {
-
-        Formiga f = new Formiga();
-        //new JSplash();
-        new JKalango();
-        System.out.println("--- Formiga ---");
-       
-        f.mover();
-        f.mover();
-        f.mover();
-        f.fazerSom();
-        f.dormir();
-        f.atacar();
-        System.out.println("Energia final da Formiga: " + f.getEnergia());
-        System.out.println("----------------\n");
-
-
-        Kalango k = new Kalango();
-        System.out.println("--- Kalango ---");
-        k.mover();
-        k.mover();
-        k.mover();
-        k.fazerSom();
-        k.dormir();
-        k.atacar();
-        System.out.println("Energia final do Kalango: " + k.getEnergia());
-        System.out.println("----------------\n");
-
-
-        Abelinha a = new Abelinha();
-        System.out.println("--- Abelinha ---");
-        a.mover();
-        a.mover();
-        a.mover();
+        new JSplash();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Quanto será a energia da Abelhinha? (Energia Máxima de 10)");
+        int aEnergia = 0;
+        aEnergia = sc.nextInt();
+        while (aEnergia > 10) {
+            System.out.println("Limite de Energia Ultrapassado, Tente um Valor menor: ");
+            aEnergia = sc.nextInt();
+        }
+        Abelhinha a = new Abelhinha(aEnergia);
+        System.out.println("Abelhinha Polenizadora:");
+        for (int i = 0; i < 3; i++) {
+            a.mover();
+            if (a.getEnergia() <= 0) {
+                break;
+            }
+        }
         a.fazerSom();
-        a.dormir();
-        a.atacar();
-        System.out.println("Energia final da Abelinha: " + a.getEnergia());
-        System.out.println("----------------\n");
-    
-
-        
+        while (true) {
+            if (a.getEnergia() <= 0) {
+                System.out.println("Energia Esgotada - Game Over -");
+                break;
+            }
+            if (a.verificarE()) {
+                break;
+            }
+            int opcao = sc.nextInt();
+            if (opcao == 1) {
+                a.comer();
+                break;
+            }else{
+                a.dormir();
+                break;
+            }
+        }
+        System.out.println("Quanto Será a energia do Kalango? (Energia Máxima de 13)");
+        int kEnergia = 0;
+        kEnergia = sc.nextInt();
+        while (kEnergia > 13) {
+            System.out.println("Limite de Energia Ultrapassado, Tente um Valor menor: ");
+            kEnergia = sc.nextInt();
+        }
+        Kalango k = new Kalango(kEnergia);
+        System.out.println("\nKalango Maratonista:");
+        for (int i = 0; i < 3; i++) {
+            k.mover();
+            if (k.getEnergia() <= 0) {
+                break;
+            }
+        }
+        k.fazerSom();
+        while (true) {
+            if (k.getEnergia() <= 0) {
+                System.out.println("Energia Esgotada - Game Over -");
+                break;
+            }
+            if (k.verificarE()) {
+                break;
+            }
+            int opcao = sc.nextInt();
+            if (opcao == 1) {
+                k.comer();
+                break;
+            }else{
+                k.dormir();
+                break;
+            }
+        }
+        System.out.println("Quanto será a energia da Formiga? (Energia Máxima de 12)");
+        int fEnergia = 0;
+        fEnergia = sc.nextInt();
+        while (fEnergia > 12) {
+            System.out.println("Limite de Energia Ultrapassado, Tente um Valor menor: ");
+            fEnergia = sc.nextInt();
+        }
+        Formiga f = new Formiga(fEnergia);
+        System.out.println("\nFormiga Trabalhadora:");
+        for (int i = 0; i < 3; i++) {
+            f.mover();
+            if (f.getEnergia() <= 0) {
+                break;
+            }
+        }
+        f.fazerSom();
+        while (true) {
+            if (f.getEnergia() <= 0) {
+                System.out.println("Energia Esgotada - Game Over -");
+                break;
+            }
+            if (f.verificarE()) {
+                break;
+            }
+            int opcao = sc.nextInt();
+            if (opcao == 1) {
+                f.comer();
+                break;
+            }else{
+                f.dormir();
+                break;
+            }
+        }
+        System.out.println("\n\t\tFim de Jogo\n-------------------------------------------\nEstatísticas dos personagens:");
+        a.tabelaFinal();
+        k.tabelaFinal();
+        f.tabelaFinal();
+        System.out.println("\n-------------------------------------------");
     }
 }

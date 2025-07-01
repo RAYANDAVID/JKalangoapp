@@ -1,24 +1,40 @@
-public class Formiga extends Personagem implements IArmamento {
-
-    public Formiga() {
-        super(100); 
+public class Formiga extends Personagem implements IArmamento{
+    
+    @Override
+    public void atacar() {
+        // TODO Auto-generated method stub
+        
     }
 
+    public Formiga(Integer energia) {
+        super(energia);
+    }
+    
     @Override
     public void mover() {
-        this.energia -= 2; 
-        System.out.println("Formiga movendo... Energia atual: " + this.energia);
+        energia -= 2;
+        if (energia < 0) {
+            energia = 0;
+        }
+        System.out.println("Movendo... Energia: "+energia);
     }
 
     @Override
     public void fazerSom() {
-        System.out.println("Fzzzz!");
+       System.out.println("Fzzzz!"); 
     }
 
-    @Override
-    public void atacar() {
-      System.out.println("Formiga ataca com 4 formas!");
-        
+    public void comer() {
+        energia += 5;
+        System.out.println("Comendo... Energia: "+energia);
     }
     
-}
+    public void tabelaFinal() {
+        System.out.print("Formiga Trabalhadora: "+energia+" Pts de Energia");
+        if (energia <= 0) {
+            System.out.print(" - Game Over -\n");
+        }else{
+            System.out.println();
+        }
+    }
+  }
