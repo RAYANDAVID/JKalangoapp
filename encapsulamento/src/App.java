@@ -1,8 +1,14 @@
+import br.com.jkalango.view.JKalango;
+import br.com.jkalango.view.JSplash;
+
 public class App {
     public static void main(String[] args) throws Exception {
 
         Formiga f = new Formiga();
+        //new JSplash();
+        new JKalango();
         System.out.println("--- Formiga ---");
+       
         f.mover();
         f.mover();
         f.mover();
@@ -35,5 +41,8 @@ public class App {
         a.atacar();
         System.out.println("Energia final da Abelinha: " + a.getEnergia());
         System.out.println("----------------\n");
+    
+
+        
     }
 }
